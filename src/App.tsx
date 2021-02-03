@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
+import Tab1 from './pages/Tab1.jsx';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 
@@ -33,7 +33,12 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-
+import './theme/fonts.scss';
+import home from "./images/home.png";
+import invest from "./images/invest.png";
+import paynow from "./images/paynow.png";
+import marketplace from "./images/marketplace.png";
+import deals from "./images/deals.png";
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
@@ -41,21 +46,37 @@ const App: React.FC = () => (
         <IonRouterOutlet>
           <Route path="/tab1" component={Tab1} exact={true} />
           <Route path="/tab2" component={Tab2} exact={true} />
+          <Route path="/tab2" component={Tab2} exact={true} />
+          <Route path="/tab2" component={Tab2} exact={true} />
           <Route path="/tab3" component={Tab3} />
           <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
         </IonRouterOutlet>
-        <IonTabBar slot="bottom">
+        <IonTabBar slot="bottom" style={{"height":"80px"}}>
           <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+            <img src={home} alt="" />
+            <p> Home </p>
+            {/* <IonLabel>Home</IonLabel> */}
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+          <img src={invest} alt="" />
+          <p> Invest </p>
+            {/* <IonIcon icon={ellipse} /> */}
+            {/* <IonLabel>Invest</IonLabel> */}
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+            <img src={paynow} alt="" width="35" />
+            <p> Pay Now </p>
+            {/* <IonLabel>Pay Now</IonLabel> */}
+          </IonTabButton>
+          <IonTabButton tab="tab3" href="/tab3">
+            <img src={marketplace} alt="" />
+            <p> Marketplace </p>
+            {/* <IonLabel>Marketplace</IonLabel> */}
+          </IonTabButton>
+          <IonTabButton tab="tab3" href="/tab3">
+            <img src={deals} alt="" />
+            <p> Deals </p>
+            {/* <IonLabel>Deals</IonLabel> */}
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
